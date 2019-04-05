@@ -1,5 +1,5 @@
-/* Print a Linked List in reverse order
- * https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list-in-reverse/problem
+/* Reverse a Linked List
+ * https://www.hackerrank.com/challenges/reverse-a-linked-list/problem
  * Abhijeet Singh
  * www.absingh.com
  */
@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class PrintReverse {
+public class Reverse {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Enter no. of nodes in Linked List: ");
@@ -28,7 +28,14 @@ public class PrintReverse {
         }
 
         Iterator<Integer> llitr = ll.descendingIterator();
-        for(int i=0; i<N; i++)
-            System.out.print(llitr.next() + "\t");
+        LinkedList<Integer> templl = new LinkedList<Integer>();
+        for(int i=0; i<N; i++) {
+            // Create reverse
+            templl.add(llitr.next());
+        }
+        // Copy back to original
+        ll = templl;
+
+        System.out.println("Linked List: " + ll);
     }
 }
